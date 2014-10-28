@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT documentos (documento+)>
+
+<!ELEMENT documento (InfoGenerica,Texto,Referencias)>
+<!ELEMENT InfoGenerica (autor+)>
+<!ATTLIST InfoGenerica
+	titulo CDATA #REQUIRED
+	data_publicacao CDATA #REQUIRED
+	local_publicacao CDATA #REQUIRED
+	entidade_publica CDATA #REQUIRED
+	id CDATA #REQUIRED>
+<!ELEMENT Texto EMPTY>
+<!ELEMENT Referencias (Referencia+)>
+
+
+
+<!ELEMENT autor EMPTY>
+<!ATTLIST autor
+	nome CDATA #IMPLIED>
+<!ELEMENT Referencia (autor+)>
+<!ATTLIST Referencia
+	id CDATA #REQUIRED
+	titulo CDATA #REQUIRED
+	ano CDATA #REQUIRED
+	url CDATA #IMPLIED>

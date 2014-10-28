@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE turma SYSTEM "turma.dtd" >
+<turma disciplina="PDE" numero="">
+  <aluno NCD="1" nome="Luis"/>
+  <aluno nome="Pedro" NCD="2"/>
+  <aluno nome="Armindo" NCD="2"/>
+  <aluno nome="Carlos" NCD="4" />
+</turma>

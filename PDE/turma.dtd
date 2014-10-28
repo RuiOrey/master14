@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!ELEMENT turma alunoAtribGroupalunoType<attribute name="numero" type="int"></attribute><attribute name="numero" type="int"></attribute>aluno+)>
+<!ATTLIST turma
+	disciplina CDATA #REQUIRED
+	numero CDATA  #REQUIRED>
+<!ELEMENT aluno EMPTY>
+<!ATTLIST aluno
+	nome CDATA #REQUIRED
+	NCD CDATA #REQUIRED>
+<!ENTITY  PDE "Processamento de documentos estruturados">

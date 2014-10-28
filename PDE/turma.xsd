@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/turma" xmlns:tns="http://www.example.org/turma" elementFormDefault="qualified">
+
+    <element name="turma" type="string"></element>
+
+    <element name="aluno" type="tns:alunoType"></element>
+
+
+
+
+
+
+    <complexType name="alunoType">
+
+    	<attributeGroup ref="tns:alunoAtribGroup"></attributeGroup>
+
+    	
+    </complexType>
+
+    <attributeGroup name="alunoAtribGroup">
+    	<attribute name="nome" type="string"></attribute>
+		<attribute name="numero" type="int"></attribute>
+    </attributeGroup>
+    
+
+    <simpleType name="numero">
+    	<restriction base="int">
+    		<minInclusive value="5"/>
+    		<maxInclusive value="90"/>
+    	</restriction>
+    </simpleType>
+</schema>
