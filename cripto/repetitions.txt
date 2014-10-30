@@ -1,0 +1,22 @@
+
+Range 0
+ynz 4
+
+Range 1
+nelz 4
+
+Range 2
+elz 4
+
+Range 3
+ynz 4
+ryxv 4
+
+Range 4
+
+Range 5
+elz 4
+nelz 4
+
+Range 6
+ynz 4
