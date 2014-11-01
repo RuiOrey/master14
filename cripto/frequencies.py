@@ -41,15 +41,20 @@ for i in xrange(0,frequencia):
 		value = test[size-j-1] 
 		frequency=round(0.0+ (float(value[1])/(float(numeroLetrasPermutacao))) *100.0,1)
 		linha = linha +"\t"+ " " +value[0]+":"+ str(frequency) + ""
+	linha = linha + "\t\t 5 lower:"
+	for j in xrange(0,5):
+		value = test[5-j] 
+		frequency=round(0.0+ (float(value[1])/(float(numeroLetrasPermutacao))) *100.0,1)
+		linha = linha +"\t"+ " " +value[0]+":"+ str(frequency) + ""
 	print linha
-correspondencias1 = {"a":"j", "b":"_","c": "t","d":	"_","e": "z","f": "_","g":	"_","h": "_","i": "n", "j":"_", "k":"_", "l":"_", "m":"_", "n":"_","o":	"g","p": "_", "q":"_", "r":"_","s": "x", "t":"_", "u":"_", "v":"_", "w":"_", "x":"_", "y":"_", "z":"_"}
-correspondencias2 = {"a":"g", "b":"_","c": "_","d":	"_","e": "x","f": "_","g":	"_","h": "_","i": "_", "j":"_", "k":"_", "l":"_", "m":"j", "n":"_","o":	"t","p": "_", "q":"z", "r":"_","s": "_", "t":"_", "u":"n", "v":"_", "w":"_", "x":"_", "y":"_", "z":"_"}
-correspondencias3 = {"a":"_", "b":"_","c": "_","d":	"_","e": "_","f": "_","g":	"_","h": "_","i": "_", "j":"_", "k":"_", "l":"_", "m":"_", "n":"_","o":	"_","p": "_", "q":"_", "r":"_","s": "_", "t":"_", "u":"_", "v":"_", "w":"_", "x":"_", "y":"_", "z":"_"}
-correspondencias4 = {"a":"d", "b":"_","c": "_","d":	"_","e": "y","f": "_","g":	"_","h": "_","i": "_", "j":"_", "k":"_", "l":"_", "m":"_", "n":"_","o":	"m","p": "_", "q":"_", "r":"_","s": "_", "t":"_", "u":"_", "v":"_", "w":"_", "x":"_", "y":"_", "z":"_"}
-correspondencias5 = {"a":"_", "b":"_","c": "_","d":	"_","e": "_","f": "_","g":	"_","h": "_","i": "_", "j":"_", "k":"_", "l":"_", "m":"_", "n":"_","o":	"_","p": "_", "q":"_", "r":"_","s": "_", "t":"_", "u":"_", "v":"_", "w":"_", "x":"_", "y":"_", "z":"_"}
-correspondencias6 = {"a":"z", "b":"_","c": "_","d":	"_","e": "n","f": "_","g":	"_","h": "_","i": "_", "j":"g", "k":"_", "l":"_", "m":"_", "n":"_","o":	"x","p": "_", "q":"_", "r":"_","s": "_", "t":"_", "u":"_", "v":"_", "w":"j", "x":"_", "y":"t", "z":"_"}
-correspondencias7 = {"a":"s", "b":"_","c": "_","d":	"_","e": "v","f": "_","g":	"_","h": "_","i": "_", "j":"_", "k":"_", "l":"_", "m":"_", "n":"_","o":	"l","p": "_", "q":"w", "r":"_","s": "_", "t":"_", "u":"r", "v":"_", "w":"_", "x":"_", "y":"_", "z":"_"}
-correspondencias8 = {"a":"w", "b":"_","c": "_","d":	"_","e": "r","f": "_","g":	"_","h": "_","i": "_", "j":"_", "k":"s", "l":"_", "m":"_", "n":"_","o":	"v","p": "_", "q":"_", "r":"_","s": "_", "t":"_", "u":"_", "v":"_", "w":"_", "x":"_", "y":"l", "z":"_"}
+correspondencias1 = {"a":"j", "b":"q","c": "y","d":	"v","e": "z","f": "e","g":	"d","h": "p","i": "x", "j":"h", "k":"u", "l":"f", "m":"c", "n":"r","o":	"i","p": "s", "q":"m", "r":"k","s": "n", "t":"l", "u":"g", "v":"b", "w":"a", "x":"o", "y":"t", "z":"w"}
+correspondencias2 = {"a":"g", "b":"b","c": "a","d":	"o","e": "t","f": "w","g":	"j","h": "q","i": "y", "j":"v", "k":"z", "l":"e", "m":"d", "n":"p","o":	"x","p": "h", "q":"u", "r":"f","s": "c", "t":"r", "u":"i", "v":"s", "w":"m", "x":"k", "y":"n", "z":"l"}
+correspondencias3 = {"a":"k", "b":"n","c": "l","d":	"g","e": "b","f": "a","g":	"o","h": "t","i": "w", "j":"j", "k":"q", "l":"y", "m":"v", "n":"z","o":	"e","p": "d", "q":"p", "r":"x","s": "h", "t":"u", "u":"f", "v":"c", "w":"r", "x":"i", "y":"s", "z":"m"}
+correspondencias4 = {"a":"y", "b":"v","c": "z","d":	"e","e": "d","f": "p","g":	"x","h": "h","i": "u", "j":"f", "k":"c", "l":"r", "m":"i", "n":"s","o":	"m","p": "k", "q":"n", "r":"l","s": "g", "t":"b", "u":"a", "v":"o", "w":"t", "x":"w", "y":"j", "z":"q"}
+correspondencias5 = {"a":"p", "b":"x","c": "h","d":	"u","e": "f","f": "c","g":	"r","h": "i","i": "s", "j":"m", "k":"k", "l":"n", "m":"l", "n":"g","o":	"b","p": "a", "q":"o", "r":"t","s": "w", "t":"j", "u":"q", "v":"y", "w":"v", "x":"z", "y":"e", "z":"d"}
+correspondencias6 = {"a":"z", "b":"e","c": "d","d":	"p","e": "x","f": "h","g":	"u","h": "f","i": "c", "j":"r", "k":"i", "l":"s", "m":"m", "n":"k","o":	"n","p": "l", "q":"g", "r":"b","s": "a", "t":"o", "u":"t", "v":"w", "w":"j", "x":"q", "y":"y", "z":"v"}
+correspondencias7 = {"a":"s", "b":"m","c": "k","d":	"n","e": "l","f": "g","g":	"b","h": "a","i": "o", "j":"t", "k":"w", "l":"j", "m":"q", "n":"y","o":	"v","p": "z", "q":"e", "r":"d","s": "p", "t":"x", "u":"h", "v":"u", "w":"f", "x":"c", "y":"r", "z":"i"}
+correspondencias8 = {"a":"w", "b":"j","c": "q","d":	"y","e": "v","f": "z","g":	"e","h": "d","i": "p", "j":"x", "k":"h", "l":"u", "m":"f", "n":"c","o":	"r","p": "i", "q":"s", "r":"m","s": "k", "t":"n", "u":"l", "v":"g", "w":"b", "x":"a", "y":"o", "z":"t"}
 lista_correspondencias=[inverterDicionario(correspondencias1),inverterDicionario(correspondencias2),inverterDicionario(correspondencias3),inverterDicionario(correspondencias4),inverterDicionario(correspondencias5),inverterDicionario(correspondencias6),inverterDicionario(correspondencias7),inverterDicionario(correspondencias8)]
 linha2="1\t"
 inha1="0\t"
@@ -100,7 +105,7 @@ textop=""
 for i in xrange(0,tamanho):
 	indice =i % 8
 	if indice == 0:
-		textop=textop+"\t"
+		textop=textop+""
 	if texto[i] in lista_correspondencias[indice]:
 		letra=lista_correspondencias[indice][texto[i]]
 	else:
