@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/report" xmlns:tns="http://www.example.org/report" elementFormDefault="qualified">
+   
+    <element name="Documentos" type="tns:Documentos"></element>
+    <element name="Documento" type="tns:Documento"></element>
+    <element name="Texto" type="tns:Texto"></element>
+    <element name="Infogenerica" type="tns:Infogenerica"></element>
+
 
     <complexType name="Documentos" mixed="false">
     	<sequence>
@@ -18,12 +24,20 @@
     	</sequence>
     </complexType>
 
-    <complexType name="Infogenerica" mixed="false"></complexType>
+    <complexType name="Infogenerica" mixed="false">
+      <sequence maxOccurs="unbounded">
+        <element name="autor" type="string">    
+    	
+    	</element>
+      </sequence>
+    	<attributeGroup ref="tns:InfoGenerica"></attributeGroup>
+
+    </complexType>
 
     <complexType name="Texto" mixed="true">
     	<complexContent>
     		<extension base="tns:Formatar">
-    		<choice maxOccurs="unbounded">
+    		<choice minOccurs="0" maxOccurs="unbounded">
 				<element ref="tns:Capitulo" />
     			<element ref="tns:Seccao"  />
     			<element ref="tns:Subseccao" />
@@ -40,12 +54,13 @@
   <complexType mixed="true">
   	<complexContent>
    		<extension base="tns:Formatar">
-  		<sequence maxOccurs="unbounded">
-			<choice>
+  		<sequence  minOccurs="0" maxOccurs="unbounded">
+			<choice  minOccurs="0">
   		<element ref="tns:Seccao" maxOccurs="unbounded"/>
 		<element ref="tns:Subseccao" maxOccurs="unbounded"/>
 		<element ref="tns:p" maxOccurs="unbounded"/>
 		</choice></sequence>
+		<attribute name="id" type="ID"></attribute>
   			</extension>
   			</complexContent>
   </complexType>
@@ -56,11 +71,12 @@
   <complexType mixed="true">
   	<complexContent>
   		<extension base="tns:Formatar">
-  				<sequence maxOccurs="unbounded">
+  				<sequence maxOccurs="unbounded"  minOccurs="0">
 			<choice>
   			<element ref="tns:Subseccao"  maxOccurs="unbounded"/>
   			<element ref="tns:p"  maxOccurs="unbounded"/>
   			</choice></sequence>
+  			<attribute name="id" type="ID"></attribute>
   		</extension>
   	</complexContent>
   </complexType>
@@ -70,31 +86,31 @@
   <complexType mixed="true">
   	<complexContent>
   		<extension base="tns:Formatar">
-  		<sequence maxOccurs="unbounded">
-			<choice>
-		<element ref="tns:p" maxOccurs="unbounded"/>
-		</choice></sequence>
-  			</extension>
-  			</complexContent>
+  			<sequence maxOccurs="unbounded" minOccurs="0">
+  				<choice>
+  					<element ref="tns:p" maxOccurs="unbounded" />
+  				</choice>
+  			</sequence>
+  			<attribute name="id" type="ID"></attribute>
+  		</extension>
+  	</complexContent>
   </complexType>
-  </element>
+	  </element>
 	
 		  <element name="p">
   <complexType mixed="true">
   	<complexContent>
   		<extension base="tns:Formatar">
-  				</extension>
-  			</complexContent>
+  			<attribute name="id" type="ID"></attribute>
+  		</extension>
+  	</complexContent>
   </complexType>
-  </element>
+		  </element>
   
 
 
 
-    <element name="Documentos" type="tns:Documentos"></element>
-    <element name="Documento" type="tns:Documento"></element>
-    <element name="Texto" type="tns:Texto"></element>
-    <element name="Infogenerica" type="tns:Infogenerica"></element>
+
 
 
     <attributeGroup name="InfoGenerica">
@@ -116,7 +132,7 @@
 
     <group name="Formatar">
     <sequence>
-        <choice maxOccurs="unbounded"> 
+        <choice minOccurs="0" maxOccurs="unbounded"> 
     	<element name="p" type="string"></element>
     	<element name="b" type="string"></element>
     	<element name="strong" type="string"></element>
@@ -167,7 +183,7 @@
   </element>
  
   <complexType name="Formatar" mixed="true">
-        <choice>          
+        <choice  minOccurs="0">          
   		 <element ref="tns:strong" />
           <element ref="tns:i" />
           <element ref="tns:u" />

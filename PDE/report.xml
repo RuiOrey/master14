@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Documentos xmlns:tns="http://www.example.org/report" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/report report.xsd ">
+  <tns:Documento>
+    <tns:Infogenerica data="2001-01-01" entidade_publica="FCUP" id="10" local="Porto" titulo="Um documento">
+      <tns:autor>Autor 1</tns:autor>
+      <tns:autor>Autor 2</tns:autor>
+    </tns:Infogenerica>
+    <tns:Texto>>
+    	<tns:Capitulo id="capitulo1"> 
+    		Um capitulo com texto em <tns:i>em italico</tns:i>
+    		<tns:Seccao> 
+    			Com uma secção
+    			<tns:Subseccao>
+    				e uma subsecção
+    				<tns:p>
+    					e mais um paragrafo... com uma <tns:image url="imagem.jpg">imagem</tns:image>
+    				</tns:p>
+    			</tns:Subseccao>
+    		</tns:Seccao>
+    	</tns:Capitulo>
+    	<tns:Seccao> 
+    		aqui temos uma secção com um <tns:goto id= "capitulo1"> atalho para o capitulo 1</tns:goto>
+    	</tns:Seccao>
+    	<tns:em> Com texto em destaque e com um atalho para uma <tns:reference id="idvalue1">referencia</tns:reference></tns:em>
+    </tns:Texto>
+    <tns:Referencias>
+      <tns:Referencia ano="2001" id="idvalue0" titulo="Uma referencia" url="www.referencia.pt">
+        <tns:autor>Amilcar JP</tns:autor>
+        <tns:autor>André JP</tns:autor>
+        <tns:autor>Normandio JP</tns:autor>
+      </tns:Referencia>
+       <tns:Referencia ano="2001" id="idvalue1" titulo="Uma referencia no espaço" url="www.referencia.pt">
+		     <tns:autor>Normandio JP</tns:autor>
+      </tns:Referencia>
+    </tns:Referencias>
+  </tns:Documento>
+</tns:Documentos>
