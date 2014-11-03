@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/report" xmlns:tns="http://www.example.org/report" elementFormDefault="qualified">
+
+    <complexType name="Documentos" mixed="false">
+    	<sequence>
+    		<element name="Documento" type="tns:Documento"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Documento" mixed="false">
+    	<sequence>
+    		<element name="Infogenerica" minOccurs="1"
+    			maxOccurs="1" type="tns:Infogenerica">
+    		</element>
+    		<element name="Texto" minOccurs="1" maxOccurs="1" type="tns:Texto"></element>
+    		<element ref="tns:Referencias" minOccurs="0" maxOccurs="1"></element>
+    		
+    	</sequence>
+    </complexType>
+
+    <complexType name="Infogenerica" mixed="false"></complexType>
+
+    <complexType name="Texto" mixed="true">
+    	<complexContent>
+    		<extension base="tns:Formatar">
+    		<choice maxOccurs="unbounded">
+				<element ref="tns:Capitulo" />
+    			<element ref="tns:Seccao"  />
+    			<element ref="tns:Subseccao" />
+    			<element ref="tns:p"  />
+    			</choice>
+    		</extension>	
+	   		
+    	</complexContent>
+    </complexType>
+
+
+
+    <element name="Capitulo">
+  <complexType mixed="true">
+  	<complexContent>
+   		<extension base="tns:Formatar">
+  		<sequence maxOccurs="unbounded">
+			<choice>
+  		<element ref="tns:Seccao" maxOccurs="unbounded"/>
+		<element ref="tns:Subseccao" maxOccurs="unbounded"/>
+		<element ref="tns:p" maxOccurs="unbounded"/>
+		</choice></sequence>
+  			</extension>
+  			</complexContent>
+  </complexType>
+  </element>
+	
+	
+	  <element name="Seccao">
+  <complexType mixed="true">
+  	<complexContent>
+  		<extension base="tns:Formatar">
+  				<sequence maxOccurs="unbounded">
+			<choice>
+  			<element ref="tns:Subseccao"  maxOccurs="unbounded"/>
+  			<element ref="tns:p"  maxOccurs="unbounded"/>
+  			</choice></sequence>
+  		</extension>
+  	</complexContent>
+  </complexType>
+	  </element>
+
+	  <element name="Subseccao">
+  <complexType mixed="true">
+  	<complexContent>
+  		<extension base="tns:Formatar">
+  		<sequence maxOccurs="unbounded">
+			<choice>
+		<element ref="tns:p" maxOccurs="unbounded"/>
+		</choice></sequence>
+  			</extension>
+  			</complexContent>
+  </complexType>
+  </element>
+	
+		  <element name="p">
+  <complexType mixed="true">
+  	<complexContent>
+  		<extension base="tns:Formatar">
+  				</extension>
+  			</complexContent>
+  </complexType>
+  </element>
+  
+
+
+
+    <element name="Documentos" type="tns:Documentos"></element>
+    <element name="Documento" type="tns:Documento"></element>
+    <element name="Texto" type="tns:Texto"></element>
+    <element name="Infogenerica" type="tns:Infogenerica"></element>
+
+
+    <attributeGroup name="InfoGenerica">
+    	<attribute name="titulo" type="string" use="required"></attribute>
+    	<attribute name="data" type="date" use="required"></attribute>
+    	<attribute name="local" type="string" use="required"></attribute>
+    	<attribute name="entidade_publica" type="string" use="required"></attribute>
+    	<attribute name="id" type="tns:Id_doc" use="required"></attribute>
+    </attributeGroup>
+
+
+
+    <simpleType name="Id_doc">
+    	<restriction base="int">
+    		<minExclusive value="0"></minExclusive>
+    		<maxExclusive value="100000000"></maxExclusive>
+    	</restriction>
+    </simpleType>
+
+    <group name="Formatar">
+    <sequence>
+        <choice maxOccurs="unbounded"> 
+    	<element name="p" type="string"></element>
+    	<element name="b" type="string"></element>
+    	<element name="strong" type="string"></element>
+    	<element name="i" type="string"></element>
+    	<element name="u" type="string"></element>
+    	<element name="em" type="string"></element>
+    	<element name="goto" type="string"></element>
+    	<element name="reference" type="string"></element>
+    	<element name="image" type="string"></element>
+    	</choice>
+    	</sequence>
+    </group>
+
+
+    	
+
+  <element name="goto">
+  <complexType mixed="true">
+  	<complexContent>
+  		<extension base="tns:Formatar">
+  			<attribute name="id" type="IDREF"></attribute>
+  			</extension></complexContent>
+  </complexType>
+  </element>
+  
+  <element name="reference">
+  <complexType mixed="true">
+  	<complexContent>
+  		<extension base="tns:Formatar">
+  			<attribute name="id" type="IDREF"></attribute></extension></complexContent>
+  </complexType>
+  </element>
+  
+  
+  <element name="b" type="tns:Formatar"/>
+  <element name="strong" type="tns:Formatar"/>
+  <element name="i" type="tns:Formatar"/>
+  <element name="u" type="tns:Formatar"/>
+  <element name="em" type="tns:Formatar"/>
+  <element name="image" >
+    <complexType mixed="true">
+  	<complexContent>
+  		<extension base="tns:Formatar">
+  			<attribute name="url" type="string"/>
+  	
+  </extension></complexContent>
+  </complexType>
+  </element>
+ 
+  <complexType name="Formatar" mixed="true">
+        <choice>          
+  		 <element ref="tns:strong" />
+          <element ref="tns:i" />
+          <element ref="tns:u" />
+          <element ref="tns:b" />
+          <element ref="tns:em" />
+          <element ref="tns:goto" />
+          <element ref="tns:reference" />
+          <element ref="tns:image"/>
+    </choice>
+  </complexType>
+  
+  
+    <element name="Referencias">
+    <complexType mixed="false">
+      <sequence maxOccurs="unbounded">
+        <element ref="tns:Referencia"/>
+      </sequence></complexType></element>
+
+  
+  <element name="Referencia">
+    <complexType mixed="false">
+      <sequence maxOccurs="unbounded">
+        <element name="autor" type="string">    
+    	
+    	</element>
+      </sequence>
+      <attribute name="id" type="ID" use="required"/>
+      <attribute name="titulo" type="string" use="required"/>
+      <attribute name="ano" type="string" use="required"/>
+      <attribute name="url" type="string"/>
+    </complexType>
+  </element>
+
+
+
+  <group name="NewGroupDefinition">
+  	<sequence></sequence>
+  </group>
+</schema>

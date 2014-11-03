@@ -10,21 +10,21 @@
 	entidade_publica CDATA #REQUIRED
 	id ID #REQUIRED>
 
-<!ELEMENT Texto (#PCDATA |Capitulo|Seccao|Subseccao|p|Formatar)*>
-<!ELEMENT Capitulo (#PCDATA |Seccao|Subseccao|p|Formatar)*>
+<!ELEMENT Texto (#PCDATA |Capitulo|Seccao|Subseccao|p|f)*>
+<!ELEMENT Capitulo (#PCDATA |Seccao|Subseccao|p|f)*>
 <!ATTLIST Capitulo
-	id ID #REQUIRED>
-<!ELEMENT Seccao (#PCDATA |Subseccao|p|Formatar)*>
+	id ID #IMPLIED>
+<!ELEMENT Seccao (#PCDATA |Subseccao|p|f)*>
 <!ATTLIST Seccao
-	id ID #REQUIRED>
-<!ELEMENT Subseccao (#PCDATA | p|Formatar)*>
+	id ID #IMPLIED>
+<!ELEMENT Subseccao (#PCDATA | p|f)*>
 <!ATTLIST Subseccao
-	id ID #REQUIRED>
-<!ELEMENT p (#PCDATA | Formatar)*>
+	id ID #IMPLIED>
+<!ELEMENT p (#PCDATA | f)*>
 <!ATTLIST p
-	id ID #REQUIRED>
+	id ID #IMPLIED>
 
-<!ELEMENT Formatar ( #PCDATA | b | strong | i | u | em | image | goto | reference)* >
+<!ELEMENT f ( #PCDATA | b | strong | i | u | em | image | goto | reference)* >
 <!ELEMENT b (#PCDATA | strong | i | u | em | image | goto | reference)*>
 <!ELEMENT strong (#PCDATA | em | i | u | b | image | goto | reference)*>
 <!ELEMENT i (#PCDATA | strong | em | u | b | image | goto | reference)*>
@@ -32,12 +32,13 @@
 <!ELEMENT em (#PCDATA | strong | i | u | b | image | goto | reference)*>
 <!ELEMENT reference (#PCDATA | strong | i | u | b | image | goto | em)*>
 <!ATTLIST reference
-	id IDREF #REQUIRED>
+	id IDREF #IMPLIED>
 <!ELEMENT goto (#PCDATA | strong | i | u | b | image | em | reference)*>
 <!ATTLIST goto
-	id IDREF #REQUIRED>
+	id IDREF #IMPLIED>
 <!ELEMENT image (#PCDATA | strong | i | u | b | em | goto | reference)*>
 <!ATTLIST image
+	id CDATA #IMPLIED
 	url CDATA #REQUIRED>
 
 	

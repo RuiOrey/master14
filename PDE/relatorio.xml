@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE documentos SYSTEM "relatorio.dtd" >
+<documentos>
+	<documento>
+		<InfoGenerica 	titulo="Documento 1" data_publicacao="23/12/2013" local_publicacao="Porto" entidade_publica="Faculdade Ciencias" id="DOCX">
+			<autor nome="Anonimo"/>
+		</InfoGenerica>
+		<Texto> Este é um texto de teste 
+				<Capitulo >
+					<p>Um paragrafo de teste num capitulo em<f><i>italico</i><b>, negrito </b><b><i> e negrito italico</i> </b></f> </p>
+					<Seccao id="um">Aqui um seccao no capitulo
+							<Subseccao id="umpontoum">
+								E uma subsecçãoo..
+							</Subseccao>
+					</Seccao>
+				</Capitulo>
+				<Subseccao> Com conteudos mistos</Subseccao>
+				<f>Aqui temos uma secção de formatação com texto em <i>italico</i>, <b>negrito</b>, <strong> carregado</strong>, <em>destacado</em> e <u>sublinhado</u></f>
+				<f>Alem disso, temos uma <image url="imagem.jpg">imagem</image>, um <goto id="umpontoum">atalho para uma secção do documento</goto> e para uma <reference id="ref1">referencia na lista de referencias</reference> </f>
+		</Texto>
+		<Referencias>
+			<Referencia id="ref1" titulo="Uma referencia" ano="1994" url="www.umareferencia.pt">
+					<autor nome="Amilcar RJ"/>
+					<autor nome="Rodolfo MA"/>
+			</Referencia>
+			<Referencia id="ref3" titulo="Outra referencia" ano="1995" url="www.umareferencia2.pt">
+					<autor nome="Joana RJ"/>
+			</Referencia>
+		</Referencias>
+	</documento>
+</documentos>
+
